@@ -52,7 +52,6 @@
             }
         }
 
-        /* Hero elements fade in sequentially */
         .hero-content {
             animation: fadeInUp 1s ease-out 0.3s both;
         }
@@ -1344,4 +1343,15 @@
 
         const observer = new IntersectionObserver(function(entries) {
             entries.forEach(entry => {
-            
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('section').forEach(section => {
+            observer.observe(section);
+        });
+    </script>
+</body>
+</html>
